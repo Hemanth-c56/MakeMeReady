@@ -1,19 +1,67 @@
-import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
+import nextPlugin from "@next/eslint-plugin-next";
+import tsPlugin from "@typescript-eslint/eslint-plugin";
+import tsParser from "@typescript-eslint/parser";
+import prettierPlugin from "eslint-plugin-prettier";
+import prettierConfig from "eslint-config-prettier";
+import globals from "globals"; // You may need to: bun add -d globals
 
-const compat = new FlatCompat({
-  baseDirectory: import.meta.dirname,
-  recommendedConfig: js.configs.recommended,
-});
-
-const eslintConfig = [
-  ...compat.config({
-    extends: [
-      "next/core-web-vitals",
-      "next/typescript",
-      "plugin:prettier/recommended",
+/** @type {import('eslint').Linter.Config[]} */
+export default [
+  // 1. Global Ignores (This object must only contain 'ignores')
+  {
+    ignores: [
+      "**/node_modules/",
+      "**/.next/",
+      "**/out/",
+      "**/build/",
+      "**/dist/",
+      "**/public/",
+      "**/*.config.js",
     ],
+  },
+
+  // 2. Base Javascript Configuration
+  js.configs.recommended,
+
+  // 3. Main Application Configuration
+  {
+    files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
+    plugins: {
+      "@next/next": nextPlugin,
+      "@typescript-eslint": tsPlugin,
+      prettier: prettierPlugin,
+    },
+    languageOptions: {
+      parser: tsParser,
+      // THE FIX: Move globals from 'env' to here
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...globals.es2021,
+      },
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+        ecmaFeatures: { jsx: true },
+      },
+    },
+    settings: {
+      react: { version: "detect" },
+    },
     rules: {
+      // Manually spreading Next.js rules
+      ...nextPlugin.configs.recommended.rules,
+      ...nextPlugin.configs["core-web-vitals"].rules,
+
+      // TypeScript recommended rules
+      ...tsPlugin.configs.recommended.rules,
+
+      // Prettier integration
+      ...prettierConfig.rules,
+      "prettier/prettier": "error",
+
+      // Your custom project rules
       "@next/next/no-img-element": "error",
       "@typescript-eslint/array-type": "off",
       "@typescript-eslint/consistent-type-definitions": "off",
@@ -32,18 +80,5 @@ const eslintConfig = [
       ],
       "@typescript-eslint/require-await": "off",
     },
-  }),
-  {
-    ignores: [
-      "node_modules",
-      "dist",
-      "build",
-      "out",
-      "coverage",
-      ".turbo",
-      ".next",
-    ],
   },
 ];
-
-export default eslintConfig;

@@ -1,45 +1,42 @@
-import * as React from "react";
-import type { Metadata, Viewport } from "next";
-import "../styles/globals.css";
+import * as React from 'react';
+
+import type { Metadata, Viewport } from 'next';
+
+import '../styles/globals.css';
 
 export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
+  width: 'device-width',
+  initialScale: 1
 };
 
 export const metadata: Metadata = {
-  title: "MakeMeReady",
+  title: 'MakeMeReady',
   icons: {
-    icon: "/favicon.ico",
+    icon: '/favicon.ico'
   },
-  description:
-    "--",
-  keywords: [
-    "Interviews",
-  ],
-  authors: [{ name: "MakeMeReady" }],
-  creator: "Hemanth",
-  publisher: "Hemanth",
+  description: '--',
+  keywords: ['Interviews'],
+  authors: [{ name: 'MakeMeReady' }],
+  creator: 'Hemanth',
+  publisher: 'Hemanth',
   openGraph: {
-    title: "MakeMeReady",
-    description:
-      "--",
-    type: "website",
+    title: 'MakeMeReady',
+    description: '--',
+    type: 'website'
   },
   twitter: {
-    card: "summary_large_image",
-    title: "MakeMeReady",
-    description:
-      "--",
+    card: 'summary_large_image',
+    title: 'MakeMeReady',
+    description: '--'
   },
   robots: {
     index: true,
-    follow: true,
-  },
+    follow: true
+  }
 };
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {

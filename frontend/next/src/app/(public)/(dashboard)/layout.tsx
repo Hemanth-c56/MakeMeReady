@@ -1,18 +1,17 @@
-import type React from "react";
-import { Inter } from "next/font/google";
+import { Inter } from 'next/font/google';
 
-const inter = Inter({ subsets: ["latin"] });
+import type React from 'react';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export default function DashboardLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} font-sans antialiased`}>
-        {children}
-      </body>
+      <body className={`${inter.className} font-sans antialiased`}>{children}</body>
     </html>
   );
 }
