@@ -23,11 +23,16 @@ function page() {
               </div>
               MakeMeReady.
             </div>
-            <span className="text-2xl">Sign-in</span>
+            <span className="text-2xl">Register</span>
           </CardTitle>
           <CardContent>
             <div>
               <form className="flex flex-col gap-5">
+                <Input
+                  className="h-10 text-lg! placeholder:text-lg"
+                  type="text"
+                  placeholder="Enter your Full Name"
+                />
                 <Input
                   className="h-10 text-lg! placeholder:text-lg"
                   type="email"
@@ -46,15 +51,24 @@ function page() {
                     {showPassword ? <EyeOff size={24} /> : <Eye size={24} />}
                   </button>
                 </div>
-
-                <Link className="text-sm text-blue-950" href="/forgot-password">
-                  Forgot Password ?
-                </Link>
+                <div className="relative">
+                  <Input
+                    className="h-10 text-lg! placeholder:text-lg"
+                    type={showPassword ? 'text' : 'password'}
+                    placeholder="Confirm your password"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="text-muted-foreground hover:text-foreground absolute top-1/2 right-4 -translate-y-1/2">
+                    {showPassword ? <EyeOff size={24} /> : <Eye size={24} />}
+                  </button>
+                </div>
                 <Button className="text-lg" type="submit">
-                  Sign-in
+                  Register
                 </Button>
-                <Link className="text-right text-sm text-blue-950" href="/sign-up">
-                  New to MakeMeReady ?
+                <Link className="text-right text-sm text-blue-950" href="/sign-in">
+                  Sign - In ?
                 </Link>
               </form>
             </div>
