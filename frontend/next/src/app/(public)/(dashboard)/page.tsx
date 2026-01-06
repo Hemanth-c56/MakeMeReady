@@ -35,7 +35,11 @@ export default function Home() {
                 }}>
                 Sign In
               </Button>
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 transform shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg">
+              <Button
+                className="bg-primary text-primary-foreground hover:bg-primary/90 transform shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                onClick={() => {
+                  router.push('/sign-up');
+                }}>
                 Get Started
               </Button>
             </div>
