@@ -42,7 +42,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body suppressHydrationWarning={true}>{children}</body>
+      <body className="font-sans" suppressHydrationWarning={true}>
+        {children}
+      </body>
     </html>
   );
 }
