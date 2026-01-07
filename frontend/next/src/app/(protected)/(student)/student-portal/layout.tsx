@@ -22,7 +22,7 @@ export default async function StudentPortalLayout({
         <div className="panel-bg pointer-events-none fixed bottom-0 left-0 z-0 h-[70%] w-full" />
         <Navbar />
         <main className="mb-20 box-border">
-          <div className="relative z-10 p-2">{children}</div>
+          <div className="relative z-10">{children}</div>
         </main>
       </div>
     </SidebarProvider>
