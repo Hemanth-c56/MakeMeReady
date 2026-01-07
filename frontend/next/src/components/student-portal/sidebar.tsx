@@ -3,18 +3,18 @@
 import Link from 'next/link';
 
 import {
-  BadgeCheck,
-  Bell,
   Bot,
   ChevronsUpDown,
-  CreditCard,
+  CircleUserRound,
   FileUser,
   Home,
   Lightbulb,
   LogOut,
+  Moon,
   Puzzle,
-  Sparkles
+  Sun
 } from 'lucide-react';
+import { useTheme } from 'next-themes';
 
 import { Avatar, AvatarFallback, AvatarImage } from '~/shared/shadcn/avatar';
 import {
@@ -39,6 +39,8 @@ import {
 } from '~/shared/shadcn/sidebar';
 
 export function AppSidebar() {
+  const { theme, setTheme } = useTheme();
+
   return (
     <>
       <Sidebar collapsible="icon">
@@ -58,10 +60,10 @@ export function AppSidebar() {
 
         <div className="bg-sidebar-border h-px w-[80%] self-center" />
 
-        <SidebarContent className="mt-3 gap-3">
+        <SidebarContent className="mt-7 gap-3">
           <SidebarGroup>
             <SidebarGroupContent>
-              <SidebarMenu className="gap-2">
+              <SidebarMenu className="gap-4">
                 <SidebarMenuItem>
                   <SidebarMenuButton
                     asChild
@@ -128,71 +130,79 @@ export function AppSidebar() {
 
         <SidebarFooter>
           <SidebarMenu>
-            <SidebarMenuItem>
+            <SidebarMenuItem className="mb-2">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <SidebarMenuButton
                     size="lg"
-                    className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground">
-                    <Avatar className="h-8 w-8 rounded-lg">
+                    // CHANGED: Added 'h-14' for taller button
+                    className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground h-14">
+                    {/* CHANGED: Avatar h-8 -> h-10 */}
+                    <Avatar className="h-10 w-10 rounded-lg">
                       <AvatarImage src="https://github.com/shadcn.png" alt="User" />
                       <AvatarFallback className="rounded-lg">CN</AvatarFallback>
                     </Avatar>
-                    <div className="grid flex-1 text-left text-sm leading-tight">
-                      <span className="truncate font-semibold">Hemanth</span>
-                      <span className="truncate text-xs">hemanth@example.com</span>
+                    <div className="grid flex-1 text-left leading-tight">
+                      {/* CHANGED: Font sizes increased */}
+                      <span className="truncate text-base font-semibold">Hemanth</span>
+                      <span className="text-muted-foreground truncate text-sm">
+                        hemanth@example.com
+                      </span>
                     </div>
-                    <ChevronsUpDown className="ml-auto size-4" />
+                    {/* CHANGED: Icon size-4 -> size-5 */}
+                    <ChevronsUpDown className="ml-auto size-5" />
                   </SidebarMenuButton>
                 </DropdownMenuTrigger>
 
                 <DropdownMenuContent
-                  className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
-                  side="bottom"
+                  // CHANGED: min-w-56 -> min-w-64 (Wider menu)
+                  className="w-[--radix-dropdown-menu-trigger-width] min-w-64 rounded-lg"
+                  side="right"
                   align="end"
                   sideOffset={4}>
                   <DropdownMenuLabel className="p-0 font-normal">
-                    <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
-                      <Avatar className="h-8 w-8 rounded-lg">
+                    <div className="flex items-center gap-3 px-1 py-2 text-left">
+                      {/* CHANGED: Header Avatar h-8 -> h-10 */}
+                      <Avatar className="h-10 w-10 rounded-lg">
                         <AvatarImage src="https://github.com/shadcn.png" alt="User" />
                         <AvatarFallback className="rounded-lg">CN</AvatarFallback>
                       </Avatar>
-                      <div className="grid flex-1 text-left text-sm leading-tight">
-                        <span className="truncate font-semibold">Hemanth</span>
-                        <span className="truncate text-xs">hemanth@example.com</span>
+                      <div className="grid flex-1 text-left leading-tight">
+                        <span className="truncate text-base font-semibold">Hemanth</span>
+                        <span className="text-muted-foreground truncate text-sm">
+                          hemanth@example.com
+                        </span>
                       </div>
                     </div>
                   </DropdownMenuLabel>
                   <DropdownMenuSeparator />
 
                   <DropdownMenuGroup>
-                    <DropdownMenuItem>
-                      <Sparkles className="mr-2 h-4 w-4" />
-                      Upgrade to Pro
+                    {/* CHANGED: Added padding 'p-3' and text-base */}
+                    <DropdownMenuItem className="cursor-pointer gap-2 p-3 text-base">
+                      <CircleUserRound className="h-5 w-5" /> {/* Icon 4 -> 5 */}
+                      Profile
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
 
                   <DropdownMenuSeparator />
 
                   <DropdownMenuGroup>
-                    <DropdownMenuItem>
-                      <BadgeCheck className="mr-2 h-4 w-4" />
-                      Account
-                    </DropdownMenuItem>
-                    <DropdownMenuItem>
-                      <CreditCard className="mr-2 h-4 w-4" />
-                      Billing
-                    </DropdownMenuItem>
-                    <DropdownMenuItem>
-                      <Bell className="mr-2 h-4 w-4" />
-                      Notifications
+                    <DropdownMenuItem
+                      onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+                      className="cursor-pointer gap-2 p-3 text-base">
+                      <div className="relative flex items-center justify-center">
+                        <Sun className="h-5 w-5 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
+                        <Moon className="absolute h-5 w-5 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+                      </div>
+                      <span>Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode</span>
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
 
                   <DropdownMenuSeparator />
 
-                  <DropdownMenuItem>
-                    <LogOut className="mr-2 h-4 w-4" />
+                  <DropdownMenuItem className="cursor-pointer gap-2 p-3 text-base">
+                    <LogOut className="h-5 w-5" />
                     Log out
                   </DropdownMenuItem>
                 </DropdownMenuContent>

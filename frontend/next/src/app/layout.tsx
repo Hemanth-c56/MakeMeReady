@@ -4,13 +4,15 @@ import type { Metadata, Viewport } from 'next';
 
 import '../styles/globals.css';
 
+import { ThemeProvider } from '~/providers/theme-provider';
+
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1
 };
 
 export const metadata: Metadata = {
-  title: 'MakeMeReady',
+  title: 'Make Me Ready',
   icons: {
     icon: '/favicon.ico'
   },
@@ -43,7 +45,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="font-sans" suppressHydrationWarning={true}>
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
