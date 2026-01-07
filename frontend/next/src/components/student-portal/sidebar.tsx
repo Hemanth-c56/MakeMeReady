@@ -35,7 +35,8 @@ import {
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
-  SidebarMenuItem
+  SidebarMenuItem,
+  useSidebar
 } from '~/shared/shadcn/sidebar';
 
 import MainLogo from '../../../public/assets/main-logo.png';
@@ -43,6 +44,7 @@ import ShortLogo from '../../../public/assets/short-logo.png';
 
 export function AppSidebar() {
   const { theme, setTheme } = useTheme();
+  const { isMobile } = useSidebar();
 
   return (
     <>
@@ -50,19 +52,21 @@ export function AppSidebar() {
         <SidebarHeader>
           <SidebarMenu>
             <SidebarMenuItem className="flex items-center justify-center">
-              <SidebarMenuButton asChild className="w-fit px-0 py-7">
+              <SidebarMenuButton
+                asChild
+                className="w-full justify-center px-0 py-7 hover:bg-transparent active:bg-transparent">
                 <Link
                   href={`/student-portal/3jf358dks/dashboard`}
-                  className="flex items-center justify-baseline text-2xl">
+                  className="flex items-center justify-center">
                   <Image
                     src={MainLogo}
                     alt="MakeMeReady"
-                    className="w-55 group-data-[collapsible=icon]:hidden"
+                    className="w-55 transition-all group-data-[collapsible=icon]:hidden"
                   />
                   <Image
                     src={ShortLogo} // Make sure to import your icon-only logo
                     alt="M"
-                    className="hidden group-data-[collapsible=icon]:block"
+                    className="hidden w-10 object-contain transition-all group-data-[collapsible=icon]:block"
                   />
                 </Link>
               </SidebarMenuButton>
@@ -166,7 +170,7 @@ export function AppSidebar() {
 
                 <DropdownMenuContent
                   className="w-[--radix-dropdown-menu-trigger-width] min-w-64 rounded-lg"
-                  side="right"
+                  side={isMobile ? 'top' : 'right'}
                   align="end"
                   sideOffset={4}>
                   <DropdownMenuLabel className="p-0 font-normal">
