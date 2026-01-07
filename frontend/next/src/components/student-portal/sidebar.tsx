@@ -1,10 +1,10 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 
 import {
   Bot,
-  ChevronsUpDown,
   CircleUserRound,
   FileUser,
   Home,
@@ -38,6 +38,9 @@ import {
   SidebarMenuItem
 } from '~/shared/shadcn/sidebar';
 
+import MainLogo from '../../../public/assets/main-logo.png';
+import ShortLogo from '../../../public/assets/short-logo.png';
+
 export function AppSidebar() {
   const { theme, setTheme } = useTheme();
 
@@ -47,11 +50,20 @@ export function AppSidebar() {
         <SidebarHeader>
           <SidebarMenu>
             <SidebarMenuItem className="flex items-center justify-center">
-              <SidebarMenuButton asChild className="w-fit p-5 py-5">
+              <SidebarMenuButton asChild className="w-fit px-0 py-7">
                 <Link
                   href={`/student-portal/3jf358dks/dashboard`}
                   className="flex items-center justify-baseline text-2xl">
-                  <span>Logo</span>
+                  <Image
+                    src={MainLogo}
+                    alt="MakeMeReady"
+                    className="w-55 group-data-[collapsible=icon]:hidden"
+                  />
+                  <Image
+                    src={ShortLogo} // Make sure to import your icon-only logo
+                    alt="M"
+                    className="hidden group-data-[collapsible=icon]:block"
+                  />
                 </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
@@ -149,13 +161,10 @@ export function AppSidebar() {
                         hemanth@example.com
                       </span>
                     </div>
-                    {/* CHANGED: Icon size-4 -> size-5 */}
-                    <ChevronsUpDown className="ml-auto size-5" />
                   </SidebarMenuButton>
                 </DropdownMenuTrigger>
 
                 <DropdownMenuContent
-                  // CHANGED: min-w-56 -> min-w-64 (Wider menu)
                   className="w-[--radix-dropdown-menu-trigger-width] min-w-64 rounded-lg"
                   side="right"
                   align="end"
