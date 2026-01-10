@@ -97,9 +97,9 @@ export function AppSidebar() {
                     asChild
                     className="hover:bg-primary/10 hover:text-primary active:bg-primary/15 p-5 py-6 transition-colors"
                     tooltip="Interview">
-                    <Link href={`/student-portal/3jf358dks/ai-interview`}>
+                    <Link href={`/student-portal/3jf358dks/interview-lobby`}>
                       <Bot className="mr-2 size-6!" />
-                      <span className="text-[17px] font-medium">Ai Interview</span>
+                      <span className="text-[17px] font-medium">Interview Lobby</span>
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>

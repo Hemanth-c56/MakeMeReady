@@ -1,9 +1,9 @@
 'use client';
 
-import { CsFundamentals } from '~/components/student-portal/interview/cs-fundamentals';
-import { JobDescriptionBased } from '~/components/student-portal/interview/description-based';
-import { DomainTracks } from '~/components/student-portal/interview/domain-tracks';
-import { HrCommunication } from '~/components/student-portal/interview/hr-communication';
+import { CsFundamentals } from '~/components/student-portal/interview-lobby/cs-fundamentals';
+import { JobDescriptionBased } from '~/components/student-portal/interview-lobby/description-based';
+import { DomainTracks } from '~/components/student-portal/interview-lobby/domain-tracks';
+import { HrCommunication } from '~/components/student-portal/interview-lobby/hr-communication';
 
 export default function InterviewLobby() {
   return (

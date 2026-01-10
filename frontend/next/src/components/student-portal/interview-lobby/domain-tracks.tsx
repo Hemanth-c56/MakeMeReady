@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 import { BrainCircuit, Globe, Smartphone, Upload } from 'lucide-react';
 
@@ -56,6 +57,8 @@ export function DomainTracks() {
   const [resumeFile, setResumeFile] = useState<File | null>(null);
 
   const currentTrack = domainTracks.find((t) => t.id === selectedTrack);
+
+  const router = useRouter();
 
   return (
     <>
@@ -148,7 +151,7 @@ export function DomainTracks() {
 
             <Button
               className="h-11 w-full text-base font-semibold"
-              onClick={() => setSelectedTrack(null)}>
+              onClick={() => router.push('/student-interview/12345/interview/67343')}>
               Start Domain Interview
             </Button>
           </div>
