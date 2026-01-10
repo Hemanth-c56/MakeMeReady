@@ -1,6 +1,6 @@
 import type React from 'react';
 
-export default function DashboardLayout({
+export default function LandingLayout({
   children
 }: Readonly<{
   children: React.ReactNode;

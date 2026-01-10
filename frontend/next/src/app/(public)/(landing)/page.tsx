@@ -6,13 +6,13 @@ import { CheckCircle2 } from 'lucide-react';
 
 import { Button } from '~/shared/shadcn/button';
 
-import { Features } from '~/components/dashboard/features';
-import { Footer } from '~/components/dashboard/footer';
-import { Hero } from '~/components/dashboard/hero';
-import { HowItWorks } from '~/components/dashboard/how-it-works';
-import { SocialProof } from '~/components/dashboard/social-proof';
+import { Features } from '~/components/landing/features';
+import { Footer } from '~/components/landing/footer';
+import { Hero } from '~/components/landing/hero';
+import { HowItWorks } from '~/components/landing/how-it-works';
+import { SocialProof } from '~/components/landing/social-proof';
 
-export default function Home() {
+export default function LandingPage() {
   const router = useRouter();
 
   return (
