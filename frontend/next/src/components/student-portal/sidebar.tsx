@@ -6,13 +6,14 @@ import Link from 'next/link';
 import {
   Bot,
   CircleUserRound,
-  FileUser,
   Home,
   Lightbulb,
   LogOut,
   Moon,
   Puzzle,
-  Sun
+  ScanSearch,
+  Sun,
+  Target
 } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
@@ -121,9 +122,21 @@ export function AppSidebar() {
                     asChild
                     className="hover:bg-primary/10 hover:text-primary active:bg-primary/15 p-5 py-6 transition-colors"
                     tooltip="Resume">
-                    <Link href={`/student-portal/3jf358dks/resume-check`}>
-                      <FileUser className="mr-2 size-6!" />
-                      <span className="text-[17px] font-medium">Resume Check</span>
+                    <Link href={`/student-portal/3jf358dks/resume-audit`}>
+                      <ScanSearch className="mr-2 size-6!" />
+                      <span className="text-[17px] font-medium">Resume Audit</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+
+                <SidebarMenuItem>
+                  <SidebarMenuButton
+                    asChild
+                    className="hover:bg-primary/10 hover:text-primary active:bg-primary/15 p-5 py-6 transition-colors"
+                    tooltip="Resume">
+                    <Link href={`/student-portal/3jf358dks/job-match`}>
+                      <Target className="mr-2 size-6!" />
+                      <span className="text-[17px] font-medium">Job Match</span>
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>

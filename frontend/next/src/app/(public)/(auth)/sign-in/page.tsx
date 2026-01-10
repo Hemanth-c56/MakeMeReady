@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import { CheckCircle2, Eye, EyeOff } from 'lucide-react';
 
@@ -10,6 +11,7 @@ import { Card, CardContent, CardTitle } from '~/shared/shadcn/card';
 import { Input } from '~/shared/shadcn/input';
 
 function page() {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -27,7 +29,12 @@ function page() {
           </CardTitle>
           <CardContent>
             <div>
-              <form className="flex flex-col gap-5">
+              <form
+                className="flex flex-col gap-5"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  router.push('/student-portal/12345/dashboard');
+                }}>
                 <Input
                   className="h-10 text-lg! placeholder:text-lg"
                   type="email"

@@ -69,7 +69,7 @@ function page() {
     { rank: 2, name: 'Jordan Blake', interviews: 38, assessments: 15, puzzles: 128, total: 181 },
     {
       rank: 3,
-      name: 'Sarah Chen',
+      name: 'Hemanth kumar',
       interviews: 24,
       assessments: 18,
       puzzles: 156,
