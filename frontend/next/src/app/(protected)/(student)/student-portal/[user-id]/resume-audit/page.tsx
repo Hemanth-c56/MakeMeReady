@@ -208,6 +208,8 @@ const mockResumes = [
 ];
 
 export default function ResumeAuditPage() {
+  //TODO: Implement hashcheck for resumes for being 100% consistant, so that the same resume on multiple uploads leads to the same results
+
   const [selectedResumeId, setSelectedResumeId] = useState<number | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -226,8 +228,8 @@ export default function ResumeAuditPage() {
   };
 
   return (
-    <div className="from-background via-secondary/5 to-background min-h-screen bg-linear-to-br p-4 md:p-8">
-      <div className="mx-auto max-w-7xl">
+    <div className="from-background via-secondary/5 to-background min-h-screen bg-linear-to-br p-4 md:px-6">
+      <div className="mx-auto">
         <div className="bg-card border-border mb-8 flex flex-col items-center justify-between gap-4 rounded-xl border p-6 shadow-sm sm:flex-row">
           <div className="w-full flex-1 sm:w-auto">
             <label className="text-foreground mb-2 block text-sm font-semibold">

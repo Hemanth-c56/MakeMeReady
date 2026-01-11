@@ -121,7 +121,7 @@ export function AppSidebar() {
                   <SidebarMenuButton
                     asChild
                     className="hover:bg-primary/10 hover:text-primary active:bg-primary/15 p-5 py-6 transition-colors"
-                    tooltip="Resume">
+                    tooltip="Resume Audit">
                     <Link href={`/student-portal/3jf358dks/resume-audit`}>
                       <ScanSearch className="mr-2 size-6!" />
                       <span className="text-[17px] font-medium">Resume Audit</span>
@@ -133,7 +133,7 @@ export function AppSidebar() {
                   <SidebarMenuButton
                     asChild
                     className="hover:bg-primary/10 hover:text-primary active:bg-primary/15 p-5 py-6 transition-colors"
-                    tooltip="Resume">
+                    tooltip="JD Match">
                     <Link href={`/student-portal/3jf358dks/job-match`}>
                       <Target className="mr-2 size-6!" />
                       <span className="text-[17px] font-medium">Job Match</span>
