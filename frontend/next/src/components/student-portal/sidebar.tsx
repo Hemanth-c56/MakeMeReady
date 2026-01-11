@@ -33,6 +33,7 @@ import {
   SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
+  SidebarGroupLabel, // Added this import
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
@@ -65,7 +66,7 @@ export function AppSidebar() {
                     className="w-55 transition-all group-data-[collapsible=icon]:hidden"
                   />
                   <Image
-                    src={ShortLogo} // Make sure to import your icon-only logo
+                    src={ShortLogo}
                     alt="M"
                     className="hidden w-10 object-contain transition-all group-data-[collapsible=icon]:block"
                   />
@@ -77,15 +78,16 @@ export function AppSidebar() {
 
         <div className="bg-sidebar-border h-px w-[80%] self-center" />
 
-        <SidebarContent className="mt-7 gap-3">
+        <SidebarContent className="mt-5 gap-0">
+          {/* --- Main Navigation (Dashboard & Lobby) --- */}
           <SidebarGroup>
             <SidebarGroupContent>
-              <SidebarMenu className="gap-4">
+              <SidebarMenu className="gap-2">
                 <SidebarMenuItem>
                   <SidebarMenuButton
                     asChild
                     className="hover:bg-primary/10 hover:text-primary active:bg-primary/15 p-5 py-6 transition-colors"
-                    tooltip="home">
+                    tooltip="Dashboard">
                     <Link href={`/student-portal/3jf358dks/dashboard`}>
                       <Home className="mr-2 size-6!" />
                       <span className="text-[17px] font-medium">Dashboard</span>
@@ -97,26 +99,23 @@ export function AppSidebar() {
                   <SidebarMenuButton
                     asChild
                     className="hover:bg-primary/10 hover:text-primary active:bg-primary/15 p-5 py-6 transition-colors"
-                    tooltip="Interview">
+                    tooltip="Interview Lobby">
                     <Link href={`/student-portal/3jf358dks/interview-lobby`}>
                       <Bot className="mr-2 size-6!" />
                       <span className="text-[17px] font-medium">Interview Lobby</span>
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
 
-                <SidebarMenuItem>
-                  <SidebarMenuButton
-                    asChild
-                    className="hover:bg-primary/10 hover:text-primary active:bg-primary/15 p-5 py-6 transition-colors"
-                    tooltip="Technical">
-                    <Link href={`/student-portal/3jf358dks/technical-quiz`}>
-                      <Lightbulb className="mr-2 size-6!" />
-                      <span className="text-[17px] font-medium">Technial Quiz</span>
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-
+          <SidebarGroup className="mt-2">
+            <SidebarGroupLabel className="text-muted-foreground text-md mb-2 px-5 font-semibold tracking-wider uppercase">
+              Profile Insights
+            </SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu className="gap-2">
                 <SidebarMenuItem>
                   <SidebarMenuButton
                     asChild
@@ -133,10 +132,31 @@ export function AppSidebar() {
                   <SidebarMenuButton
                     asChild
                     className="hover:bg-primary/10 hover:text-primary active:bg-primary/15 p-5 py-6 transition-colors"
-                    tooltip="JD Match">
+                    tooltip="Job Match">
                     <Link href={`/student-portal/3jf358dks/job-match`}>
                       <Target className="mr-2 size-6!" />
                       <span className="text-[17px] font-medium">Job Match</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+
+          <SidebarGroup className="mt-2">
+            <SidebarGroupLabel className="text-muted-foreground text-md mb-2 px-5 font-semibold tracking-wider uppercase">
+              Practice Arena
+            </SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu className="gap-2">
+                <SidebarMenuItem>
+                  <SidebarMenuButton
+                    asChild
+                    className="hover:bg-primary/10 hover:text-primary active:bg-primary/15 p-5 py-6 transition-colors"
+                    tooltip="Technical Quiz">
+                    <Link href={`/student-portal/3jf358dks/technical-quiz`}>
+                      <Lightbulb className="mr-2 size-6!" />
+                      <span className="text-[17px] font-medium">Technical Quiz</span>
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -145,10 +165,10 @@ export function AppSidebar() {
                   <SidebarMenuButton
                     asChild
                     className="hover:bg-primary/10 hover:text-primary active:bg-primary/15 p-5 py-6 transition-colors"
-                    tooltip="Puzzle">
+                    tooltip="Fun Puzzles">
                     <Link href={`/student-portal/3jf358dks/fun-puzzels`}>
                       <Puzzle className="mr-2 size-6!" />
-                      <span className="text-[17px] font-medium">Fun puzzles</span>
+                      <span className="text-[17px] font-medium">Fun Puzzles</span>
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -164,15 +184,12 @@ export function AppSidebar() {
                 <DropdownMenuTrigger asChild>
                   <SidebarMenuButton
                     size="lg"
-                    // CHANGED: Added 'h-14' for taller button
                     className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground h-14">
-                    {/* CHANGED: Avatar h-8 -> h-10 */}
                     <Avatar className="h-10 w-10 rounded-lg">
                       <AvatarImage src="https://github.com/shadcn.png" alt="User" />
                       <AvatarFallback className="rounded-lg">CN</AvatarFallback>
                     </Avatar>
                     <div className="grid flex-1 text-left leading-tight">
-                      {/* CHANGED: Font sizes increased */}
                       <span className="truncate text-base font-semibold">Hemanth</span>
                       <span className="text-muted-foreground truncate text-sm">
                         hemanth@example.com
@@ -188,7 +205,6 @@ export function AppSidebar() {
                   sideOffset={4}>
                   <DropdownMenuLabel className="p-0 font-normal">
                     <div className="flex items-center gap-3 px-1 py-2 text-left">
-                      {/* CHANGED: Header Avatar h-8 -> h-10 */}
                       <Avatar className="h-10 w-10 rounded-lg">
                         <AvatarImage src="https://github.com/shadcn.png" alt="User" />
                         <AvatarFallback className="rounded-lg">CN</AvatarFallback>
@@ -204,9 +220,8 @@ export function AppSidebar() {
                   <DropdownMenuSeparator />
 
                   <DropdownMenuGroup>
-                    {/* CHANGED: Added padding 'p-3' and text-base */}
                     <DropdownMenuItem className="cursor-pointer gap-2 p-3 text-base">
-                      <CircleUserRound className="h-5 w-5" /> {/* Icon 4 -> 5 */}
+                      <CircleUserRound className="h-5 w-5" />
                       Profile
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
