@@ -154,9 +154,9 @@ export function AppSidebar() {
                     asChild
                     className="hover:bg-primary/10 hover:text-primary active:bg-primary/15 p-5 py-6 transition-colors"
                     tooltip="Technical Quiz">
-                    <Link href={`/student-portal/3jf358dks/technical-quiz`}>
+                    <Link href={`/student-portal/3jf358dks/rapid-fire`}>
                       <Lightbulb className="mr-2 size-6!" />
-                      <span className="text-[17px] font-medium">Technical Quiz</span>
+                      <span className="text-[17px] font-medium">Rapid Fire</span>
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
