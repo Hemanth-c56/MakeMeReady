@@ -220,10 +220,12 @@ export function AppSidebar() {
                   <DropdownMenuSeparator />
 
                   <DropdownMenuGroup>
-                    <DropdownMenuItem className="cursor-pointer gap-2 p-3 text-base">
-                      <CircleUserRound className="h-5 w-5" />
-                      Profile
-                    </DropdownMenuItem>
+                    <Link href={'/student-portal/12345/profile'}>
+                      <DropdownMenuItem className="cursor-pointer gap-2 p-3 text-base">
+                        <CircleUserRound className="h-5 w-5" />
+                        Profile
+                      </DropdownMenuItem>
+                    </Link>
                   </DropdownMenuGroup>
 
                   <DropdownMenuSeparator />
