@@ -1,7 +1,7 @@
 'use client';
 
 import { AchievementsCard } from '~/components/student-portal/profile/achievements-card';
-import { ActivityHistory } from '~/components/student-portal/profile/activity-history';
+import { ActivityHistory } from '~/components/student-portal/profile/interview-history';
 import { ProfileHeader } from '~/components/student-portal/profile/profile-header';
 
 export default function StudentProfile() {

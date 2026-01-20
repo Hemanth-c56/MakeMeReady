@@ -3,7 +3,7 @@
 import { useRef, useState } from 'react';
 import Image from 'next/image';
 
-import { AlertCircle, Github, Linkedin, Settings, Upload } from 'lucide-react';
+import { AlertCircle, FileText, Github, Linkedin, Settings, Upload, X } from 'lucide-react';
 
 import { Button } from '~/shared/shadcn/button';
 import {
@@ -31,6 +31,8 @@ export function ProfileHeader({ user }: ProfileHeaderProps) {
   const [openSettings, setOpenSettings] = useState(false);
   const [profileImage, setProfileImage] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [uploadedResume, setUploadedResume] = useState<{ name: string; file: File } | null>(null);
+  const resumeFileInputRef = useRef<HTMLInputElement>(null);
 
   const handleProfileImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -45,6 +47,29 @@ export function ProfileHeader({ user }: ProfileHeaderProps) {
 
   const triggerFileInput = () => {
     fileInputRef.current?.click();
+  };
+
+  const triggerResumeFileInput = () => {
+    resumeFileInputRef.current?.click();
+  };
+
+  const handleResumeUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (
+      file &&
+      (file.type === 'application/pdf' ||
+        file.type === 'application/msword' ||
+        file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')
+    ) {
+      setUploadedResume({ name: file.name, file });
+    }
+  };
+
+  const handleRemoveResume = () => {
+    setUploadedResume(null);
+    if (resumeFileInputRef.current) {
+      resumeFileInputRef.current.value = '';
+    }
   };
 
   return (
@@ -162,6 +187,47 @@ export function ProfileHeader({ user }: ProfileHeaderProps) {
               GitHub
             </Button>
           </div>
+        </div>
+      </div>
+
+      <div className="border-border mt-8 border-t pt-8">
+        <div className="flex items-center justify-between">
+          <div>
+            <h3 className="text-foreground mb-2 font-semibold">Resume</h3>
+            {uploadedResume ? (
+              <div className="bg-secondary/50 border-border flex items-center gap-3 rounded-lg border p-3">
+                <FileText className="text-primary h-5 w-5" />
+                <div className="flex-1">
+                  <p className="text-foreground text-sm font-medium">{uploadedResume.name}</p>
+                  <p className="text-muted-foreground text-xs">Uploaded resume</p>
+                </div>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleRemoveResume}
+                  className="text-destructive hover:text-destructive hover:bg-destructive/10">
+                  <X className="h-4 w-4" />
+                </Button>
+              </div>
+            ) : (
+              <p className="text-muted-foreground text-sm">No resume uploaded yet</p>
+            )}
+          </div>
+          <Button
+            onClick={triggerResumeFileInput}
+            className="flex items-center gap-2"
+            variant={uploadedResume ? 'outline' : 'default'}>
+            <Upload className="h-4 w-4" />
+            {uploadedResume ? 'Change Resume' : 'Upload Resume'}
+          </Button>
+          <input
+            ref={resumeFileInputRef}
+            type="file"
+            accept=".pdf,.doc,.docx"
+            onChange={handleResumeUpload}
+            className="hidden"
+            aria-label="Upload resume"
+          />
         </div>
       </div>
     </div>

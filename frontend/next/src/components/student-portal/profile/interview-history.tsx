@@ -29,7 +29,7 @@ interface ActivityHistoryProps {
 export function ActivityHistory({ activities }: ActivityHistoryProps) {
   return (
     <div className="space-y-4">
-      <h2 className="text-foreground text-2xl font-bold">Activity History</h2>
+      <h2 className="text-foreground text-2xl font-bold">Interview History</h2>
       <div className="space-y-3">
         {activities.map((activity, idx) => (
           <div key={activity.id} className="flex gap-4">
