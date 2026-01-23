@@ -89,15 +89,6 @@ export default function LogicVault() {
 
   return (
     <div className="from-background via-background to-primary/5 flex min-h-screen flex-col items-center justify-center bg-linear-to-br p-4">
-      {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="mb-12 text-center">
-        <h1 className="text-foreground mb-2 text-4xl font-bold md:text-5xl">Logic Vault</h1>
-        <p className="text-muted-foreground">Master logic puzzles one card at a time</p>
-      </motion.div>
-
       {/* Progress indicator */}
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-8 flex gap-2">
         {PUZZLE_DATA.map((_, index) => (

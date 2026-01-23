@@ -7,6 +7,30 @@ import { useScrollAnimation } from '~/hooks/use-scroll-animation';
 export function SocialProof() {
   const { ref, isVisible } = useScrollAnimation();
 
+  // Add more top-tier companies
+  const companies = [
+    'Google',
+    'Meta',
+    'Amazon',
+    'Microsoft',
+    'Apple',
+    'Netflix',
+    'Uber',
+    'Airbnb',
+    'Stripe',
+    'Salesforce',
+    'Adobe',
+    'LinkedIn',
+    'Twitter',
+    'Dropbox',
+    'Tesla',
+    'Nvidia',
+    'Oracle',
+    'SAP',
+    'Spotify',
+    'Atlassian'
+  ];
+
   return (
     <section
       ref={ref}
@@ -58,20 +82,36 @@ export function SocialProof() {
           <p className="text-muted-foreground mb-6">
             Trusted by students aiming for top-tier product companies
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-8">
-            {['Google', 'Meta', 'Amazon', 'Microsoft', 'Apple'].map((company, idx) => (
-              <span
-                key={company}
-                className={`text-muted-foreground/60 text-sm font-medium transition-all duration-700 ${
-                  isVisible ? 'animate-fade-in-up' : 'opacity-0'
-                }`}
-                style={{ animationDelay: `${0.4 + idx * 0.1}s` }}>
-                {company}
-              </span>
-            ))}
+          {/* Marquee effect */}
+          <div className="relative w-full overflow-hidden">
+            <div
+              className="animate-marquee flex gap-12 whitespace-nowrap"
+              style={{
+                animationPlayState: isVisible ? 'running' : 'paused'
+              }}>
+              {companies.concat(companies).map((company, idx) => (
+                <span key={company + idx} className="text-muted-foreground/60 text-sm font-medium">
+                  {company}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
+      {/* Marquee animation styles */}
+      <style jsx>{`
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-marquee {
+          animation: marquee 20s linear infinite;
+        }
+      `}</style>
     </section>
   );
 }

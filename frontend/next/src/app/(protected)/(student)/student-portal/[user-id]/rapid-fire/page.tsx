@@ -177,7 +177,7 @@ export default function RapidFirePage() {
           {/* Header */}
           <div className="space-y-2 text-center">
             <h1 className="flex items-center justify-center gap-2 text-4xl font-bold text-slate-900 dark:text-white">
-              <Zap className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
+              <Zap className="h-8 w-8 text-blue-600 dark:text-blue-400" />
               Rapid Fire Drills
             </h1>
             <p className="text-lg text-slate-600 dark:text-slate-400">
@@ -224,7 +224,7 @@ export default function RapidFirePage() {
           <Button
             onClick={startGame}
             disabled={selectedTopics.length === 0}
-            className="w-full bg-indigo-600 py-6 text-lg text-white hover:bg-indigo-700 disabled:opacity-50 dark:bg-indigo-500 dark:hover:bg-indigo-600">
+            className="w-full bg-blue-600 py-6 text-lg text-white hover:bg-blue-700 disabled:opacity-50 dark:bg-blue-500 dark:hover:bg-blue-600">
             Start Sprint
           </Button>
         </div>
@@ -243,7 +243,7 @@ export default function RapidFirePage() {
         <div className="relative h-2 overflow-hidden bg-slate-200 dark:bg-slate-800">
           <div
             className={`h-full transition-all duration-1000 ${
-              timeLeft <= 5 ? 'bg-red-500' : 'bg-indigo-600 dark:bg-indigo-500'
+              timeLeft <= 5 ? 'bg-red-500' : 'bg-blue-600 dark:bg-blue-500'
             }`}
             style={{ width: `${Math.max(0, 100 - progress)}%` }}
           />
@@ -256,9 +256,7 @@ export default function RapidFirePage() {
               <span className="text-sm font-semibold text-slate-600 dark:text-slate-400">
                 Score:
               </span>
-              <span className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
-                {score}
-              </span>
+              <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">{score}</span>
             </div>
             <div className="flex items-center gap-2">
               <Clock className="h-4 w-4 text-slate-600 dark:text-slate-400" />
@@ -345,8 +343,8 @@ export default function RapidFirePage() {
           </div>
 
           {/* Scorecard */}
-          <div className="rounded-lg border-2 border-indigo-200 bg-white p-8 text-center dark:border-indigo-900 dark:bg-slate-800">
-            <div className="mb-2 text-6xl font-bold text-indigo-600 dark:text-indigo-400">
+          <div className="rounded-lg border-2 border-blue-200 bg-white p-8 text-center dark:border-blue-900 dark:bg-slate-800">
+            <div className="mb-2 text-6xl font-bold text-blue-600 dark:text-blue-400">
               {score}/{DUMMY_QUESTIONS.length}
             </div>
             <div className="text-slate-600 dark:text-slate-400">Correct Answers</div>
@@ -356,7 +354,7 @@ export default function RapidFirePage() {
           <div className="grid grid-cols-3 gap-4">
             <div className="rounded-lg border border-slate-200 bg-white p-4 text-center dark:border-slate-700 dark:bg-slate-800">
               <div className="mb-2 flex items-center justify-center gap-2">
-                <Clock className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
+                <Clock className="h-4 w-4 text-blue-600 dark:text-blue-400" />
               </div>
               <div className="text-sm text-slate-600 dark:text-slate-400">Timer</div>
               <div className="text-xl font-bold text-slate-900 dark:text-white">
@@ -385,7 +383,7 @@ export default function RapidFirePage() {
           <div className="flex gap-3">
             <Button
               onClick={startGame}
-              className="flex-1 bg-indigo-600 py-6 text-lg text-white hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600">
+              className="flex-1 bg-blue-600 py-6 text-lg text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600">
               Retry Sprint
             </Button>
             <Button

@@ -1,9 +1,12 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 import { CheckCircle2 } from 'lucide-react';
+
+import MainLogo from '../../../../public/assets/main-logo.png';
 
 export default function AuthLayout({
   children
@@ -21,10 +24,11 @@ export default function AuthLayout({
           onClick={() => {
             router.push('/');
           }}>
-          <div className="bg-primary text-primary-foreground flex h-10 w-10 items-center justify-center rounded-lg">
-            <CheckCircle2 size={25} />
-          </div>
-          MakeMeReady.
+          <Image
+            src={MainLogo}
+            alt="MakeMeReady"
+            className="w-65 transition-all group-data-[collapsible=icon]:hidden"
+          />
         </div>
 
         <div className="space-y-6">

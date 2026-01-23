@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { ChevronRight, Settings, Sparkles, Upload } from 'lucide-react';
+import { Settings, Sparkles, Upload } from 'lucide-react';
 
 import { Card } from '~/shared/shadcn/card';
 
@@ -105,15 +105,6 @@ export function HowItWorks() {
                     {step.description}
                   </p>
                 </Card>
-                {idx < steps.length - 1 && (
-                  <div className="hidden items-center justify-center pt-6 md:flex">
-                    <ChevronRight
-                      className={`h-6 w-6 transition-all duration-300 ${
-                        isActive ? 'text-primary scale-150' : 'text-muted-foreground/40'
-                      }`}
-                    />
-                  </div>
-                )}
               </div>
             );
           })}

@@ -48,9 +48,9 @@ export function Hero() {
             isVisible ? 'animate-fade-in-up' : 'translate-y-8 opacity-0'
           }`}
           style={{ animationDelay: '0.3s' }}>
-          The all-in-one platform to validate your resume against job descriptions, take mock
-          technical assessments, and practice 1-on-1 with an AI Interviewer. Stop guessing, start
-          preparing.
+          The all-in-one platform to validate your resume against job descriptions, take technical
+          quick drills and fun puzzles, and practice 1-on-1 with an AI Interviewer. Stop guessing,
+          start preparing.
         </p>
 
         <Button

@@ -10,7 +10,7 @@ import { useScrollAnimation } from '~/hooks/use-scroll-animation';
 
 const features = [
   {
-    title: 'ATS & JD Analyzer',
+    title: 'JD Analyzer',
     description:
       'Upload your resume and a target Job Description. We tell you exactly if you are a match and what keywords you are missing.',
     icon: FileText,
@@ -34,9 +34,9 @@ const features = [
     color: 'from-orange-500 to-red-500'
   },
   {
-    title: 'You Control the Difficulty',
+    title: 'Resume Audit',
     description:
-      'Customize your domain and difficulty level to match your target roles and skill level.',
+      'Get Industry level insignts along with ATS score of your upades resume in seconds.',
     icon: Sliders,
     size: 'default',
     color: 'from-green-500 to-emerald-500'

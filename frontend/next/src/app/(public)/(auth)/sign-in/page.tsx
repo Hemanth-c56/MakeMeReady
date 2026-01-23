@@ -1,14 +1,17 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-import { CheckCircle2, Eye, EyeOff } from 'lucide-react';
+import { Eye, EyeOff } from 'lucide-react';
 
 import { Button } from '~/shared/shadcn/button';
 import { Card, CardContent, CardTitle } from '~/shared/shadcn/card';
 import { Input } from '~/shared/shadcn/input';
+
+import MainLogo from '../../../../../public/assets/main-logo.png';
 
 function page() {
   const router = useRouter();
@@ -18,14 +21,16 @@ function page() {
     <>
       <div>
         <Card>
-          <CardTitle className="flex flex-col items-center gap-3">
-            <div className="text-primary flex items-center gap-2 text-3xl font-bold tracking-tight">
-              <div className="bg-primary text-primary-foreground flex h-7 w-7 items-center justify-center rounded-lg">
-                <CheckCircle2 size={20} />
-              </div>
-              MakeMeReady.
+          <CardTitle className="flex flex-col items-center gap-1">
+            <div className="text-primary flex items-center text-3xl font-bold tracking-tight">
+              <Image
+                src={MainLogo}
+                alt="MakeMeReady"
+                className="w-40 transition-all group-data-[collapsible=icon]:hidden"
+              />
             </div>
-            <span className="text-2xl">Sign-in</span>
+            <div className="via-primary/20 h-px w-full bg-linear-to-r from-transparent to-transparent" />
+            <span className="text-2xl">Sign-In</span>
           </CardTitle>
           <CardContent>
             <div>

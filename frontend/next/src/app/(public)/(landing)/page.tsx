@@ -1,8 +1,7 @@
 'use client';
 
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-
-import { CheckCircle2 } from 'lucide-react';
 
 import { Button } from '~/shared/shadcn/button';
 
@@ -11,6 +10,8 @@ import { Footer } from '~/components/landing/footer';
 import { Hero } from '~/components/landing/hero';
 import { HowItWorks } from '~/components/landing/how-it-works';
 import { SocialProof } from '~/components/landing/social-proof';
+
+import MainLogo from '../../../../public/assets/main-logo.png';
 
 export default function LandingPage() {
   const router = useRouter();
@@ -21,10 +22,11 @@ export default function LandingPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="group flex cursor-pointer items-center gap-3 transition-transform duration-300 hover:scale-105">
-              <div className="from-primary to-primary/80 flex h-8 w-8 items-center justify-center rounded-md bg-linear-to-br transition-shadow duration-300 group-hover:shadow-lg">
-                <CheckCircle2 className="text-primary-foreground h-5 w-5" />
-              </div>
-              <span className="text-foreground text-xl font-bold">MakeMeReady</span>
+              <Image
+                src={MainLogo}
+                alt="MakeMeReady"
+                className="w-55 transition-all group-data-[collapsible=icon]:hidden"
+              />
             </div>
             <div className="flex items-center gap-4">
               <Button
