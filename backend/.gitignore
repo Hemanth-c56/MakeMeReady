@@ -1,0 +1,39 @@
+# Environments
+.env*
+venv/
+env/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Database
+*.db
+*.sqlite3
+alembic.ini
+
+# Logs
+logs/
+*.log
+
+# Caching
+.pytest_cache/
+.mypy_cache/
